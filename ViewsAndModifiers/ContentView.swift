@@ -7,33 +7,30 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CapsuleText: View {
+    var text: String
+
     var body: some View {
-//        VStack {
-//            Image(systemName: "globe")
-//                .imageScale(.large)
-//                .foregroundStyle(.tint)
-//            Text("Hello, world!")
-//        }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .background(.red)
-//        
-        Button("Hello, world!") {
-            // do nothing
-        }
-        .frame(width: 200, height: 200)
-        .background(.red)
-        Text("Hello, world!")
+        Text(text)
+            .font(.largeTitle)
             .padding()
-            .background(.red)
-            .padding()
-            .background(.blue)
-            .padding()
-            .background(.green)
-            .padding()
-            .background(.yellow)
+            .background(.indigo)
+            .clipShape(.capsule)
     }
 }
+
+struct ContentView: View {
+    var body: some View {
+        VStack(spacing: 10) {
+            CapsuleText(text: "First")
+                .foregroundStyle(.white)
+
+            CapsuleText(text: "Second")
+                .foregroundStyle(.yellow)
+        }
+    }
+}
+
 
 #Preview {
     ContentView()
