@@ -7,24 +7,19 @@
 
 import SwiftUI
 
-//struct Title: ViewModifier {
-//    func body(content: Content) -> some View {
-//        content
-//            .font(.largeTitle)
-//            .foregroundStyle(.white)
-//            .padding()
-//            .background(.blue)
-//            .clipShape(RoundedRectangle(cornerRadius: 10))
-//    }
-//}
-//
-//
-//struct ContentView: View {
-//    var body: some View {
-//        Text("Hello World")
-//            .modifier(Title())
-//    }
-//}
+struct LargeBlueTitle: ViewModifier{
+    func body(content: Content) -> some View{
+        content.font(.largeTitle)
+            .bold()
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+    }
+}
+
+extension View{
+    func largeBluetitle() -> some View{
+        self.modifier(LargeBlueTitle())
+    }
+}
 
 struct AvatarStyle: ViewModifier {
     func body(content: Content) -> some View {
@@ -48,8 +43,9 @@ struct ContentView: View {
                 .avatarStyle()
 
             Text("User Name")
-                .font(.headline)
-                .padding(.top, 10)
+//                .font(.headline)
+//                .padding(.top, 10)
+                .largeBluetitle()
         }
     }
 }
